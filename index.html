@@ -1,0 +1,33 @@
+<html>
+<head> 
+
+<style> 
+.cell{
+    background:rgba(151, 77, 77, 0.5);
+    width:40px;
+    height:40px;
+    margin:20px;
+    display:inline-block;
+}
+.row{
+    border:2px solid black;
+}
+
+</style>
+</head>
+<body>
+    <script>
+        for(let i=0;i<10;i++){
+            let row=document.createElement("div");
+            row.classList.add("row");
+            document.body.appendChild(row);
+        
+            for(let i=0;i<10;i++){
+                let cell=document.createElement("div");
+                cell.classList.add("cell");
+                row.appendChild(cell);
+             }
+        }
+    </script>
+</body>
+</html>
