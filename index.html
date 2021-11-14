@@ -1,23 +1,187 @@
 <html>
 <head> 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 <style> 
-.cell{
+.cell/{
     background:rgba(151, 77, 77, 0.5);
     width:40px;
     height:40px;
     margin:20px;
-    display:inline-block;
+    display:inline;
 }
-.row{
+.row/{
     border:2px solid black;
+}
+.body{
+    background-color:#fff;
+    font-family: 'Merriweather', serif;
+    line-height:1.41; 
+     
+}
+
+.transparent{
+    opacity:50%; 
+}
+.pop-up{
+    height:40vh;
+    width:40vh;
+    background-color: white;
+    margin:auto auto;
+    border:5px black solid;
+    border-radius:10px;
+    text-align:center;
+    font-family: 'Merriweather', serif;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+.exit{
+    float:right;
+    margin-right:5px;
+    font-size:20px;
+    font-weight:1000;
+    margin-top:-22px;
+}
+.exit:hover{
+    cursor:pointer;
+}
+.hidden{
+    display:none;
+}
+.duck{
+    height:16vh;
+    width:16vh;
+}
+
+.water-fowl{
+    width:98vw;
+}
+.container{
+    font-size:16px;
+    font-weight:bold;
+    vertical-align:middle;
+    margin:auto auto;
+}
+.button{
+    background-color:salmon; 
+    margin:auto auto;
+    text-align:center;
+    padding:1vh;
+    position:relative;
+    vertical-align:middle;
+    border-radius:10px;
+}
+.make_popup_appear{
+    height:6vh;
+    width:26vh;
+    font-size:30px;
+}
+
+.free_duck_button{
+    height:3vh;
+    width:13vh;
+    font-size:15px;
+}
+
+.button:hover{
+    filter:brightness(80%);
+    transition:0.2s;
+    cursor:pointer;
+}
+
+.title{
+    margin:auto auto;
+    padding:2vh;
+    padding-bottom:0vh;
+}
+.button > p{
+    vertical-align:middle;
+    margin:auto auto;
+}
+
+.text{
+    font-size:13px;
+    font-weight:300;
 }
 
 </style>
 </head>
 <body>
+    <section class= "body" id="body">
+        <div class="button make_popup_appear" id="make_popup_appear">
+            <p> Free Duck? </p>
+        </div>
+        <div class= "info" id= "info">
+            <h1 class="title-duck">
+                Duck Overview
+            </h1>
+            <p>
+                Duck is the common name for numerous species of waterfowl in the family Anatidae. Ducks are generally smaller and shorter-necked than swans and geese, which are also members of the same family. Divided among several subfamilies, they are a form taxon; they do not represent a monophyletic group (the group of all descendants of a single common ancestral species), since swans and geese are not considered ducks. Ducks are mostly aquatic birds, and may be found in both fresh water and sea water.
+
+                Ducks are sometimes confused with several types of unrelated water birds with similar forms, such as loons or divers, grebes, gallinules and coots.
+            </p>
+            <img class="duck-picture" src="https://lh3.googleusercontent.com/proxy/2i9Dc4axqO8BRjosVk26-CZ-fEskC1zsYnIYBNXr2zYSnsIjW_iBUtT5v8IMNp-nB_AswwIXM8Df47U7wLhWuMjPToBqk5IJ4yCnnjxfA7Y">
+            <h1 class="title-duck">
+                Duck Etymology
+            </h1>
+            <p>
+                The word duck comes from Old English dūce 'diver', a derivative of the verb *dūcan 'to duck, bend down low as if to get under something, or dive', because of the way many species in the dabbling duck group feed by upending; compare with Dutch duiken and German tauchen 'to dive'.
+
+                This word replaced Old English ened/ænid 'duck', possibly to avoid confusion with other words, like ende 'end' with similar forms. Other Germanic languages still have similar words for duck, for example, Dutch eend, German Ente and Norwegian and. The word ened/ænid was inherited from Proto-Indo-European; cf. Latin anas "duck", Lithuanian ántis 'duck', Ancient Greek νῆσσα/νῆττα (nēssa/nētta) 'duck', and Sanskrit ātí 'water bird', among others.
+
+                A duckling is a young duck in downy plumage[1] or baby duck,[2] but in the food trade a young domestic duck which has just reached adult size and bulk and its meat is still fully tender, is sometimes labelled as a duckling.
+
+                A male duck is called a drake and the female is called a duck, or in ornithology a hen.
+            </p>
+            <img class="water-fowl" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg">
+            
+        </div>
+
+
+    </section>
+    <section class="pop-up hidden" id="pop_up">
+        <div class="container">
+            <div class="exit" id="exit">
+               <p>x</p>
+            </div>
+            <h1 class="title">
+                Congratulations! You won a duck!
+            </h1>
+            <p class="text">
+                Click below to redeem your free duck
+            </p>
+            <img class="duck" src="duck.jpg">
+            <div class="button free_duck_button">
+                <p> <a href ="https://www.youtube.com/watch?v=MtN1YnoL46Q" target="_blank"> Free Duck
+                </a></p>
+            </div>
+        </div>
+    </section>
     <script>
-        for(let i=0;i<10;i++){
+
+    function show_pop_up(){
+        pop_up.classList.remove("hidden");
+        body.classList.add("transparent");
+    }   
+    make_popup_appear.addEventListener("click",show_pop_up);
+
+    /*setTimeout(show_pop_up,1000);*/
+
+
+    function exit_pop_up(){
+        pop_up.classList.add("hidden");
+        body.classList.remove("transparent");
+    }
+    exit.addEventListener("click",exit_pop_up);
+
+    
+
+
+        /*for(let i=0;i<10;i++){
             let row=document.createElement("div");
             row.classList.add("row");
             document.body.appendChild(row);
@@ -27,7 +191,7 @@
                 cell.classList.add("cell");
                 row.appendChild(cell);
              }
-        }
+        }*/
     </script>
 </body>
 </html>
