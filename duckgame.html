@@ -1,0 +1,51 @@
+<html>
+
+<head>
+<style>
+
+.cell{
+    background:rgba(151, 77, 77, 0.5);
+    width:40px;
+    height:40px;
+    margin:5px;
+    display:inline-block;
+}
+.row{
+    border:2px solid black;
+    margin:1px;
+}
+
+.duckling{
+    height:30px;
+}
+
+</style>
+</head>
+<body>
+    <h1>Duck Game</h1>
+<img src="duckling.png" class="duckling" id="duckling">
+    <div class="table" id="table">
+        
+    </div>
+
+
+<script>
+let cell;
+for(let rowIndex=0;rowIndex<10;rowIndex++){
+    let row=document.createElement("div");
+    row.classList.add("row");
+    table.appendChild(row);
+
+    for(let columnIndex=0;columnIndex<10;columnIndex++){
+        cell=document.createElement("div");
+        cell.classList.add("cell");
+        row.appendChild(cell);
+        if (rowIndex==0 && columnIndex==0){
+            cell.appendChild(duckling);
+        }
+    }
+}
+
+</script>
+</body>
+</html>
