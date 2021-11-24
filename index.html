@@ -40,11 +40,17 @@
     right:0;
 }
 .exit{
-    float:right;
-    margin-right:5px;
+    position:absolute;
+    top:0;
+    right:0;
     font-size:20px;
     font-weight:1000;
-    margin-top:-22px;
+    background:salmon;
+    border-radius:4px;
+    margin:4px;
+}
+.exit > p {
+  margin: 4px;
 }
 .exit:hover{
     cursor:pointer;
@@ -150,7 +156,7 @@
                <p>x</p>
             </div>
             <h1 class="title">
-                Congratulations! You won a duck!
+                Congratulations!<br>You won a duck!
             </h1>
             <p class="text">
                 Click below to redeem your free duck
