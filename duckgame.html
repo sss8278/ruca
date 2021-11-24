@@ -13,10 +13,14 @@
 .row{
     border:2px solid black;
     margin:1px;
+    width:max-content;
 }
 
 .duckling{
     height:100%;
+    position:absolute;
+    left:20px;
+    top:80px;
 }
 
 </style>
@@ -40,11 +44,13 @@ for(let rowIndex=0;rowIndex<10;rowIndex++){
         cell=document.createElement("div");
         cell.classList.add("cell");
         row.appendChild(cell);
-        if (rowIndex==0 && columnIndex==0){
-            cell.appendChild(duckling);
-        }
+        
     }
 }
+
+/* if (rowIndex==0 && columnIndex==0){
+            cell.appendChild(duckling);
+        } */
 
 </script>
 </body>
