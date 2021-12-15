@@ -4,11 +4,11 @@
 <style>
 
 .cell{
-    background:rgba(47, 132, 153, 0.5);
     width:40px;
     height:40px;
     margin:5px;
     display:inline-block;
+    background:url("fish.png"), rgba(47, 132, 153, 0.5);
 }
 .row{
     border:2px solid white;
@@ -34,6 +34,24 @@
     top:15px;
 }
 
+.cell_empty {
+    background: rgba(47, 132, 153, 0.5);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cell_with_duck {
+    background:url("duckling.png"), rgba(47, 132, 153, 0.5);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cell_with_fish {
+    background:url("fish.png"), rgba(47, 132, 153, 0.5);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 
 </style>
 </head>
@@ -41,12 +59,13 @@
     <h1>Duck Game</h1>
 
     <div class="table" id="table">
-        <img src="duckling.png" class="duckling" id="duckling">  
-        <img src="fish.png" class="fish" id="fish">
     </div>
 
 
 <script>
+let duck_col=6;
+let duck_row=6;
+
 let cell;
 for(let rowIndex=0;rowIndex<10;rowIndex++){
     let row=document.createElement("div");
@@ -56,47 +75,55 @@ for(let rowIndex=0;rowIndex<10;rowIndex++){
     for(let columnIndex=0;columnIndex<10;columnIndex++){
         cell=document.createElement("div");
         cell.classList.add("cell");
+        if (columnIndex == duck_col && rowIndex == duck_row) {
+            cell.classList.add("cell_with_duck");
+        } else {
+            cell.classList.add("cell_with_fish");    
+        }
         row.appendChild(cell);
         
     }
 }
 
-function move_duck(column, row){
-    duckling.style.left=(column-1)*50+15;
-    duckling.style.top=(row-1)*55+12;
+function move_duck(columnIndex, rowIndex){
+    // find the cell element at this row and column
+    let row = table.childNodes[rowIndex];
+    let cell = row.childNodes[columnIndex];
+    // add style cell_with_duck to it
+    cell.classList.add("cell_with_duck");
+    // remove style cell_with_fish from it
+    cell.classList.remove("cell_with_fish");
 }
-let c=6;
-let r=6;
-
-move_duck(c,r);
+move_duck(duck_col,duck_row);
 
 addEventListener("keydown", on_key_event);
 
 function on_key_event(event){
+    // TODO: Allow the duck position to wrap around 
     switch(event.key){
         case "ArrowLeft": 
-            if(c>=2){
-                c=c-1;
+            if(duck_col>=2){
+                duck_col=duck_col-1;
             }
             break;
         case "ArrowRight": 
-           if(c<=9){
-               c=c+1;
+           if(duck_col<=9){
+               duck_col=duck_col+1;
             }
             break;
         case "ArrowUp":
-            if(r>=2){
-                r=r-1;
+            if(duck_row>=2){
+                duck_row=duck_row-1;
             }
             break;
         case "ArrowDown":
-            if(r<=9){
-                r=r+1;
+            if(duck_row<=9){
+                duck_row=duck_row+1;
             }
             break;
 
     }
-    move_duck(c,r);
+    move_duck(duck_col,duck_row);
 }
 
 
