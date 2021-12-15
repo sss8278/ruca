@@ -4,14 +4,14 @@
 <style>
 
 .cell{
-    background:rgba(151, 77, 77, 0.5);
+    background:rgba(47, 132, 153, 0.5);
     width:40px;
     height:40px;
     margin:5px;
     display:inline-block;
 }
 .row{
-    border:2px solid black;
+    border:2px solid white;
     margin:1px;
     width:max-content;
 }
@@ -27,6 +27,14 @@
     position:relative;
 }
 
+.fish{
+    height:30px;
+    position:absolute;
+    left:15px;
+    top:15px;
+}
+
+
 </style>
 </head>
 <body>
@@ -34,6 +42,7 @@
 
     <div class="table" id="table">
         <img src="duckling.png" class="duckling" id="duckling">  
+        <img src="fish.png" class="fish" id="fish">
     </div>
 
 
@@ -60,6 +69,36 @@ let c=6;
 let r=6;
 
 move_duck(c,r);
+
+addEventListener("keydown", on_key_event);
+
+function on_key_event(event){
+    switch(event.key){
+        case "ArrowLeft": 
+            if(c>=2){
+                c=c-1;
+            }
+            break;
+        case "ArrowRight": 
+           if(c<=9){
+               c=c+1;
+            }
+            break;
+        case "ArrowUp":
+            if(r>=2){
+                r=r-1;
+            }
+            break;
+        case "ArrowDown":
+            if(r<=9){
+                r=r+1;
+            }
+            break;
+
+    }
+    move_duck(c,r);
+}
+
 
 /* if (rowIndex==0 && columnIndex==0){
             cell.appendChild(duckling);
